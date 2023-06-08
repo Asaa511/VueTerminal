@@ -1,4 +1,29 @@
 # VueTerminal
+```
 Vue课程期末项目小组
-# Vue 仓库每次拉取后打开vscode
-  npm install
+```
+
+# my-project
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
