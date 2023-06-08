@@ -17,14 +17,20 @@ https://github.com/git-for-windows/git/releases/download/v2.41.0.windows.1/Git-2
 
 ```
 # my-project
-    管理员运行vscode
-    添加扩展【Remote - SSH】
-    打开终端进入你要保存项目的目录
-    例如：保存至D盘中——>则输入```cd D:/```终端切换到对应目录
-    ------------------------------------------------
-    如何克隆项目：
-    继续在终端操作输入
-    ```git clone git@github.com:Asaa511/VueTerminal.git```
+管理员运行vscode
+添加扩展【Remote - SSH】
+打开终端进入你要保存项目的目录
+例如：保存至D盘中——>则输入
+```
+cd D:/
+```
+终端切换到对应目录
+------------------------------------------------
+如何克隆项目：
+继续在终端操作输入
+ ```
+ git clone git@github.com:Asaa511/VueTerminal.git
+ ```
     
 
 
