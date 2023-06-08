@@ -1,16 +1,21 @@
 ### VueTerminal
-```
 Vue课程期末项目小组
-```
+
+
 ### 环境变量·下载一键安装配置
 ```
 https://nodejs.org/dist/v18.16.0/node-v18.16.0-x64.msi
 ```
+
+
 ### 下载git本地仓库·一键安装
 ```
 https://github.com/git-for-windows/git/releases/download/v2.41.0.windows.1/Git-2.41.0-64-bit.exe
 ```
+
+
 #### 以上两个安装只需点击下一步即可，无需多余操作
+
 
 ### 简单的配置
 管理员进入vscode打开终端输入运行
