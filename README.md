@@ -7,6 +7,7 @@ Vue课程期末项目小组
 
 ## Project setup
 ```
+cd my-project
 npm install
 ```
 
