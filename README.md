@@ -65,3 +65,7 @@ npm run serve
 ```
 npm install vue-router
 ```
+### 安装Vuex 插件
+```
+npm install --save vuex@3
+```
