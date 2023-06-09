@@ -59,3 +59,9 @@ npm install
 ```
 npm run serve
 ```
+
+
+### 安装Vue Router依赖
+```
+npm install vue-router
+```
