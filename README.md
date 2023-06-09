@@ -69,4 +69,4 @@ npm install vue-router
 ```
 npm install --save vuex@3
 ```
-1
+
