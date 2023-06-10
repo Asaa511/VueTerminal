@@ -69,6 +69,10 @@ npm install vue-router
 ```
 npm install --save vuex@3
 ```
+### 安装Axios
+```
+npm install axios --save
+```
 
 ### csdn
 ```
