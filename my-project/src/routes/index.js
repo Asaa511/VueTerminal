@@ -13,10 +13,7 @@ export default [
     },
     {
         path:'/course',
-        component:MyCourse,
-        children:[
-
-        ]
+        component:MyCourse
     },
     {
         path:'/user',
