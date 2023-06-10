@@ -1,5 +1,6 @@
 {
+  "name": "VueTerminal",
+  "version": "1.0.0",
   "dependencies": {
-    "vue-router": "^4.2.2"
   }
 }
