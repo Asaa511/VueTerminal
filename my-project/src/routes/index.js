@@ -8,15 +8,16 @@ import MyCourse from "@/components/MyCourse.vue";
 
 export default [
     {
-        path:'/index',
-        component:MyIndex
+        path: '/index',
+        component: MyIndex
     },
     {
-        path:'/course',
-        component:MyCourse
+        path: '/course',
+        component: MyCourse
     },
     {
-        path:'/user',
-        component:MyUser
+        path: '/user',
+        component: MyUser,
+
     },
 ]
