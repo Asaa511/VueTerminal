@@ -70,5 +70,7 @@ npm install vue-router
 npm install --save vuex@3
 ```
 
-
-
+### csdn
+```
+https://zhuhuix.blog.csdn.net/article/details/125894921?spm=1001.2014.3001.5502
+```
