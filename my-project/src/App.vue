@@ -1,53 +1,46 @@
 <template>
   <div id="app">
-    <div>
-      <router-link to="/index">首页</router-link>
-      <router-link to="/course">课程</router-link>
-      <router-link to="/user">用户</router-link>
-    </div>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <a className="navbar-brand" href="#">Logo</a>
+      <div className="collapse navbar-collapse" id="navbarNav">
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <router-link className="nav-link" to="/index">首页</router-link>
+          </li>
+          <li className="nav-item">
+            <router-link className="nav-link" to="/course">课程</router-link>
+          </li>
+          <li className="nav-item">
+            <router-link className="nav-link" to="/user">用户</router-link>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <hr>
-    <div>
+    <div className="container">
       <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
-import VurRouter from 'vr-router'
-import MyIndex from './components/MyIndex.vue'
-import MyCourse from './components/MyCourse.vue'
-import MyUser from './components/MyUser.vue'
-Vue.use(VurRouter)
+import Vue from "vue";
+import VueRouter from "vue-router";
+import routes from './routes/index';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+
+Vue.use(VueRouter);
 const router = new VueRouter({
-  routes:[
-  {
-    path:'/index',
-    component:MyIndex
-  },
-  {
-    path:'/course',
-    component:MyCourse
-  },
-  {
-    path:'/user',
-    component:MyUser
-  }, 
- ]
-})
+  routes
+});
+
 export default {
   name: 'App',
   router
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
