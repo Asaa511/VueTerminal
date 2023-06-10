@@ -1,18 +1,43 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>
+      <router-link to="/index">首页</router-link>
+      <router-link to="/course">课程</router-link>
+      <router-link to="/user">用户</router-link>
+    </div>
+    <hr>
+    <div>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Vue from 'vue'
+import VurRouter from 'vr-router'
+import MyIndex from './components/MyIndex.vue'
+import MyCourse from './components/MyCourse.vue'
+import MyUser from './components/MyUser.vue'
+Vue.use(VurRouter)
+const router = new VueRouter({
+  routes:[
+  {
+    path:'/index',
+    component:MyIndex
+  },
+  {
+    path:'/course',
+    component:MyCourse
+  },
+  {
+    path:'/user',
+    component:MyUser
+  }, 
+ ]
+})
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  router
 }
 </script>
 
