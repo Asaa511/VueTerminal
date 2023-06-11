@@ -1,6 +1,8 @@
 import MyIndex from "@/components/MyIndex.vue";
-import MyUser from "@/components/MyUser.vue";
-import MyCourse from "@/components/MyCourse.vue";
+import MyNavbar from "@/components/MyNavbar.vue";
+
+// import MyUser from "@/components/MyUser.vue";
+// import MyCourse from "@/components/MyCourse.vue";
 // import JsCourse from "@/components/JsCourse.vue";
 // import HtmlCourse from "@/components/HtmlCourse.vue";
 // import VueCourse from "@/components/VueCourse.vue";
@@ -12,12 +14,7 @@ export default [
         component: MyIndex
     },
     {
-        path: '/course',
-        component: MyCourse
-    },
-    {
-        path: '/user',
-        component: MyUser,
-
-    },
+        path: '/navbar',
+        component: MyNavbar
+    }
 ]
