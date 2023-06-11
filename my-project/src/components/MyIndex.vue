@@ -7,11 +7,18 @@
         </div>
         <div class="col-md-2">
           <button class="btn btn-primary btn-block" @click="searchMovies">搜索</button>
+          &nbsp;&nbsp;
+          <router-link :to="{ name: 'AddMovies' }" class="btn btn-primary btn-block">添加</router-link>
         </div>
+        <transition name="slide-down">
+          <div v-if="isAddMoviesVisible">
+            <AddMovies />
+          </div>
+        </transition>
       </div>
     </div>
     <div class="movie-list">
-      <div v-for="movie in movies" :key="movie.id" class="movie-item" @click="goToMovie(movie.id)">
+      <div v-for="movie in filteredMovies" :key="movie.id" class="movie-item" @click="goToMovie(movie.id)">
         <img :src="movie.image" :alt="movie.title" class="movie-image">
         <p>{{ movie.title }}</p>
       </div>
@@ -26,7 +33,7 @@
 export default {
   data() {
     return {
-      searchQuery: '',
+      isAddMoviesVisible: false,      searchQuery: '',
       movies: [
         { id: 1, title: '星际穿越', image: require('../image/interstellar.jpg')},
         { id: 2, title: '变形金刚', image: require('../image/bxjg.jpg')},
@@ -35,8 +42,18 @@ export default {
         { id: 5, title: '疾速追杀', image: require('../image/jszs.jpg') },
         { id: 6, title: '速度与激情10', image: require('../image/sdyjq10.jpg') },
         { id: 7, title: '杀手不太冷', image: require('../image/ssbtl.jpg') },
+        { id: 8, title: '阿甘正传', image: require('../image/agzz.jpg') },
       ],
     };
+  },
+  computed: {
+    filteredMovies() {
+      if (this.searchQuery.trim() !== '') {
+        const query = this.searchQuery.toLowerCase();
+        return this.movies.filter(movie => movie.title.toLowerCase().includes(query));
+      }
+      return this.movies;
+    },
   },
   methods: {
     searchMovies() {
@@ -47,9 +64,18 @@ export default {
       // 可以使用路由进行页面跳转，或者使用其他导航方式
       console.log(movieId); // 这里使用了 movieId 变量
     },
+    goToAddMovie() {
+      // 处理显示添加界面的逻辑
+      this.isAddMoviesVisible = true;
+    },
   },
 };
 </script>
+
+
+
+
+
 
 <style scoped>
 .search-bar {
@@ -85,4 +111,20 @@ export default {
 .movie-item p {
   margin-top: 10px;
 }
+
+.no-results {
+  animation: fade-in 0.5s ease;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
 </style>
