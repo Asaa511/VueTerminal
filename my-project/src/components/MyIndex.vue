@@ -75,6 +75,7 @@ export default {
     },
     addMovie(newMovie) {
       this.movies.push(newMovie);
+      this.isAddMoviesVisible = false; // 添加完成后隐藏添加界面
     },
   },
   components: {

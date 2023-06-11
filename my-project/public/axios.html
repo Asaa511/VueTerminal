@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发送你喜欢的电影</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.3.4/axios.min.js"></script>
+</head>
+<body>
+    <button onclick="sendData()">发送</button>
+
+    <script>
+        import axios from "axios";
+
+        function sendData(){
+            axios.post("http://127.0.0.1:3000/addMovies")
+        }
+    </script>
+</body>
+</html>
