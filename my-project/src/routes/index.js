@@ -1,5 +1,6 @@
 import MyIndex from "@/components/MyIndex.vue";
 import MyNavbar from "@/components/MyNavbar.vue";
+import MyUser from "@/components/MyUser.vue";
 
 // import MyUser from "@/components/MyUser.vue";
 // import MyCourse from "@/components/MyCourse.vue";
@@ -16,5 +17,10 @@ export default [
     {
         path: '/navbar',
         component: MyNavbar
+    },
+    {
+        path: '/login',
+        component: MyUser
     }
+
 ]
