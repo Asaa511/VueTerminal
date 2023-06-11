@@ -14,7 +14,7 @@
     <input type="text" class="form-control" v-model="movieName" placeholder="电影名称">
 
     <!-- 电影简介输入框 -->
-    <textarea class="form-control" v-model="movieDescription" placeholder="电影简介"></textarea>
+<!--    <textarea class="form-control" v-model="movieDescription" placeholder="电影简介"></textarea>-->
 
     <!-- 提交按钮 -->
     <button class="btn btn-primary" @click="submitMovie">提交</button>
@@ -38,8 +38,20 @@ export default {
       this.thumbnail = URL.createObjectURL(file);
     },
     submitMovie() {
-      // 处理电影提交逻辑
-      // 可以在这里将电影名称、简介和缩略图数据发送到服务器
+      // 创建新电影对象
+      const newMovie = {
+        id: Date.now(), // 使用当前时间戳作为唯一 ID
+        title: this.movieName,
+        image: this.thumbnail,
+      };
+
+      // 触发事件并传递新电影对象给父组件
+      this.$emit('movieSubmitted', newMovie);
+
+      // 清空表单数据
+      this.movieName = '';
+      // this.movieDescription = '';
+      this.thumbnail = null;
     },
   },
 };
