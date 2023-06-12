@@ -8,7 +8,6 @@
         <div class="col-md-2">
           <button class="btn btn-primary btn-block" @click="searchMovies">搜索</button>
           &nbsp;&nbsp;
-<!--          <router-link :to="{ name: 'AddMovies' }" class="btn btn-primary btn-block">添加</router-link>-->
           <button class="btn btn-primary btn-block" @click="goToAddMovie">添加</button>
         </div>
         <transition name="slide-down">
@@ -18,8 +17,8 @@
         </transition>
       </div>
     </div>
-    <router-link class="nav-link" to="/movies">
-    <div class="movie-list" >
+
+    <div class="movie-list">
       <div v-for="movie in filteredMovies" :key="movie.id" class="movie-item" @click="goToMovie(movie.id)">
         <img :src="movie.image" :alt="movie.title" class="movie-image">
         <p>{{ movie.title }}</p>
@@ -91,14 +90,6 @@ export default {
 
 
 <style scoped>
-.search-bar {
-  margin-bottom: 20px;
-}
-
-.search-bar input {
-  width: 100%;
-}
-
 .movie-list {
   display: grid;
   grid-template-columns: repeat(5, 115px);

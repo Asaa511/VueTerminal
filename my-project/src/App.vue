@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <Navbar></Navbar>
+    <MyNavbar></MyNavbar>
     <router-view></router-view>
+    
   </div>
 </template>
 
@@ -10,7 +11,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import routes from './routes/index';
-import Navbar from './components/MyNavbar.vue';
+import MyNavbar from './components/MyNavbar.vue';
 import MyIndex from "@/components/MyIndex.vue";
 import MyUser from "@/components/MyUser.vue";
 import MyMovie from "@/components/MyMovie.vue";
@@ -25,13 +26,14 @@ export default {
   name: 'App',
   router,
   components: {
-    Navbar,
+    MyNavbar,
     // eslint-disable-next-line vue/no-unused-components
     MyIndex,
     // eslint-disable-next-line vue/no-unused-components
     MyUser,
     // eslint-disable-next-line vue/no-unused-components
     MyMovie,
+     // eslint-disable-next-line vue/no-unused-components
   }
 };
 </script>

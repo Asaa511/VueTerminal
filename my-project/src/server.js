@@ -3,7 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 // body-parser 用于解析请求体中的数据
-const cors =require("cors");
+const cors = require("cors");
 const socket = require('socket.io');
 
 // 创建 Express 应用程序
@@ -16,13 +16,13 @@ const corsOptions = {
 
 app.use(cors(corsOptions))
 // cors 用于处理跨域请求 允许来自任何源的请求访问该服务器
-app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
 
 const movies = [
-    { id: 1, title: '星际穿越' ,msg: '顶级配乐',times: ''},
-    { id: 2, title: '寻梦环游记' ,msg: '爱超越死亡',times: ''},
+    {id: 1, title: '星际穿越', msg: '顶级配乐', times: ''},
+    {id: 2, title: '寻梦环游记', msg: '爱超越死亡', times: ''},
 ];
 
 // 添加中间件，用于解析请求体中的 JSON 数据
@@ -31,7 +31,7 @@ app.use(express.json());
 // 定义获取电影数据的路由
 app.get('/', (req, res) => {
     const id = req.query.id;
-    if (id){
+    if (id) {
         const movie = movies.find(movie => movie.id === parseInt(id));
         res.send(movie);
     } else {
@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
 let movieId = 3; // 初始电影ID为1
 
 // 处理 ./addMovies 路径的 POST 数据
-app.post('/addMovies',(req, res) =>{
+app.post('/addMovies', (req, res) => {
     const newMovie = req.body;
     newMovie.id = movieId++; // 设置电影数据的id为当前movieId的值，并自增
     newMovie.times = new Date().toLocaleTimeString(); // 设置电影数据的时间
