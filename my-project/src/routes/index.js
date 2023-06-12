@@ -19,6 +19,10 @@ export default [
         ]
     },
     {
+        path: '/',
+        redirect: '/login'
+    },
+    {
         path: '/navbar',
         component: MyNavbar
     },
