@@ -17,7 +17,7 @@
         </transition>
       </div>
     </div>
-
+    <router-link class="nav-link" to="/mymovie">
     <div class="movie-list">
       <div v-for="movie in filteredMovies" :key="movie.id" class="movie-item" @click="goToMovie(movie.id)">
         <img :src="movie.image" :alt="movie.title" class="movie-image">

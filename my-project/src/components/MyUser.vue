@@ -1,5 +1,5 @@
 <template>
-      <div class="container">
+      <div class="cnm">
         <div class="login-wrapper">
             <div class="header">Login</div>
             <div class="form-wrapper">
@@ -24,7 +24,7 @@ export default {
             margin: 0;
             padding: 0;
         }
-        .container {
+        .cnm{
             height: 900px;
             width: 100%;
             background-image: linear-gradient(to right, #fbc2eb, #a6c1ee);
