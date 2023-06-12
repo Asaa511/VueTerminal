@@ -88,14 +88,6 @@ export default {
 
 
 <style scoped>
-.search-bar {
-  margin-bottom: 20px;
-}
-
-.search-bar input {
-  width: 100%;
-}
-
 .movie-list {
   display: grid;
   grid-template-columns: repeat(5, 115px);

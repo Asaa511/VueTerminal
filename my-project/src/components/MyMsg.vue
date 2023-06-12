@@ -7,11 +7,30 @@
       <input class="form-control" id="msgInput" v-model="newMovie.msg" placeholder="分享的你对这部电影的见解">
     </div>
     <button class="btn btn-primary" @click="sendData">发送</button>
-    <ul class="list-group mt-3">
-      <li v-for="movie in movies" :key="movie.id" class="list-group-item">
-        {{ movie.id }} - {{ movie.title }} - {{ movie.msg }} - {{ movie.times }}
-      </li>
-    </ul>
+    <div class="container">
+      <div class="row clearfix">
+        <div class="col-md-12 column">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>影名</th>
+              <th>消息</th>
+              <th>时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="movie in movies" :key="movie.id" class="table-success">
+              <td>{{ movie.id }}</td>
+              <td>{{ movie.title }}</td>
+              <td>{{ movie.msg }}</td>
+              <td>{{ movie.times }}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
