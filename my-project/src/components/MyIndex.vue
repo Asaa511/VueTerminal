@@ -18,13 +18,13 @@
         </transition>
       </div>
     </div>
-
-    <div class="movie-list">
+    <router-link class="nav-link" to="/movies">
+    <div class="movie-list" >
       <div v-for="movie in filteredMovies" :key="movie.id" class="movie-item" @click="goToMovie(movie.id)">
         <img :src="movie.image" :alt="movie.title" class="movie-image">
         <p>{{ movie.title }}</p>
       </div>
-    </div>
+    </div></router-link>
     <div>
       <router-view></router-view>
     </div>
@@ -43,11 +43,11 @@ export default {
         { id: 1, title: '星际穿越', image: require('../image/interstellar.jpg')},
         { id: 2, title: '变形金刚', image: require('../image/bxjg.jpg')},
         { id: 3, title: '寻梦环游记', image: require('../image/xmhyj.jpg')},
-        { id: 4, title: '楚门的世界', image: require('../image/cmdsj.jpg') },
+        { id: 4, title: '楚门的世界', image: require('../image/cmdsj.jpg')},
         { id: 5, title: '疾速追杀', image: require('../image/jszs.jpg') },
-        { id: 6, title: '速度与激情10', image: require('../image/sdyjq10.jpg') },
-        { id: 7, title: '杀手不太冷', image: require('../image/ssbtl.jpg') },
-        { id: 8, title: '阿甘正传', image: require('../image/agzz.jpg') },
+        { id: 6, title: '速度与激情10', image: require('../image/sdyjq10.jpg')},
+        { id: 7, title: '杀手不太冷', image: require('../image/ssbtl.jpg')},
+        { id: 8, title: '阿甘正传', image: require('../image/agzz.jpg')},
       ],
     };
   },
@@ -56,6 +56,7 @@ export default {
       if (this.searchQuery.trim() !== '') {
         const query = this.searchQuery.toLowerCase();
         return this.movies.filter(movie => movie.title.toLowerCase().includes(query));
+       //this.$router.push({name: 'Child', params: { id: itemId }})
       }
       return this.movies;
     },
