@@ -2,6 +2,7 @@
   <div id="app">
     <MyNavbar></MyNavbar>
     <router-view></router-view>
+    
   </div>
 </template>
 
@@ -13,6 +14,7 @@ import routes from './routes/index';
 import MyNavbar from './components/MyNavbar.vue';
 import MyIndex from "@/components/MyIndex.vue";
 import MyUser from "@/components/MyUser.vue";
+import MyMovie from "@/components/MyMovie.vue";
 
 
 Vue.use(VueRouter);
@@ -28,7 +30,10 @@ export default {
     // eslint-disable-next-line vue/no-unused-components
     MyIndex,
     // eslint-disable-next-line vue/no-unused-components
-    MyUser
+    MyUser,
+    // eslint-disable-next-line vue/no-unused-components
+    MyMovie,
+     // eslint-disable-next-line vue/no-unused-components
   }
 };
 </script>

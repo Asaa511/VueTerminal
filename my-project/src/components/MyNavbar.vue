@@ -10,7 +10,7 @@
           <router-link class="nav-link" to="/index">首页</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/movies">电影</router-link>
+          <router-link class="nav-link" to="/mymovie">电影</router-link>
         </li>
         <li class="nav-item">
           <router-link class="nav-link" to="/reviews">分享</router-link>
