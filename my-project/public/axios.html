@@ -19,12 +19,12 @@
             const msg = document.getElementById('msgInput').value;
 
             const movieData = {
-                id: Date.now(),
                 title: title,
                 msg: msg,
             };
 
-            axios.post("http://127.0.0.1:3000/addMovies", movieData)
+            axios.post("http://localhost:3000/addMovies", movieData)
+
                 .then(response => {
                     console.log(response.data);
                 })

@@ -2,6 +2,7 @@ import MyIndex from "@/components/MyIndex.vue";
 import MyNavbar from "@/components/MyNavbar.vue";
 import MyUser from "@/components/MyUser.vue";
 import AddMovies from "@/components/AddMovies.vue";
+import MyMsg from "@/components/MyMsg.vue";
 
 
 
@@ -25,5 +26,9 @@ export default [
         path: '/login',
         component: MyUser
     },
+    {
+        path: '/reviews',
+        component: MyMsg
+    }
 
 ]
