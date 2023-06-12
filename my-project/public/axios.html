@@ -6,13 +6,31 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.3.4/axios.min.js"></script>
 </head>
 <body>
-    <button onclick="sendData()">发送</button>
+    <div>
+        <input id="titleInput" placeholder="电影名称">
+        <input id="msgInput" placeholder="分享的你对这部电影的见解">
+        <button onclick="sendData()">发送</button>
+    </div>
+
 
     <script>
-        import axios from "axios";
+        function sendData() {
+            const title = document.getElementById('titleInput').value;
+            const msg = document.getElementById('msgInput').value;
 
-        function sendData(){
-            axios.post("http://127.0.0.1:3000/addMovies")
+            const movieData = {
+                id: Date.now(),
+                title: title,
+                msg: msg,
+            };
+
+            axios.post("http://127.0.0.1:3000/addMovies", movieData)
+                .then(response => {
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
         }
     </script>
 </body>
