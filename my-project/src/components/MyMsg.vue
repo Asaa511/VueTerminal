@@ -1,15 +1,28 @@
 <template>
   <div>
-    <div class="mb-3">
-      <input class="form-control" id="titleInput" v-model="newMovie.title" placeholder="电影名称">
-    </div>
-    <div class="mb-3">
-      <input class="form-control" id="msgInput" v-model="newMovie.msg" placeholder="分享的你对这部电影的见解">
-    </div>
-    <button class="btn btn-primary" @click="sendData">发送</button>
     <div class="container">
       <div class="row clearfix">
         <div class="col-md-12 column">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label for="titleInput" class="col-sm-2 control-label">影名：</label>
+              <div class="col-sm-10">
+                <input class="form-control" id="titleInput" v-model="newMovie.title" placeholder="电影名称">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="msgInput" class="col-sm-2 control-label">见解：</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" id="msgInput" v-model="newMovie.msg" placeholder="分享的你对这部电影的见解"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary" @click="sendData">发送</button>
+              </div>
+            </div>
+          </form>
+
           <table class="table table-hover">
             <thead>
             <tr>
@@ -69,6 +82,11 @@ export default {
           });
     },
     sendData() {
+      if (!this.newMovie.title) {
+        alert('请输入你要分享的电影名称');
+        return;
+      }
+
       axios
           .post('http://localhost:3000/addMovies', this.newMovie)
           .then((response) => {

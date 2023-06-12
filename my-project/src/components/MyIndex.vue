@@ -90,8 +90,8 @@ export default {
 <style scoped>
 .movie-list {
   display: grid;
-  grid-template-columns: repeat(5, 115px);
-  grid-template-rows: repeat(1, 210px);
+  grid-template-columns: repeat(5, 140px);
+  grid-template-rows: repeat(1, 250px);
   grid-gap: 10px;
   justify-content: center;
   align-content: center;
@@ -106,8 +106,8 @@ export default {
 }
 
 .movie-image {
-  width: 115px;
-  height: 161px;
+  width: 140px;
+  height: 200px;
 }
 
 .movie-item p {
