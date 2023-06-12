@@ -8,7 +8,6 @@
         <div class="col-md-2">
           <button class="btn btn-primary btn-block" @click="searchMovies">搜索</button>
           &nbsp;&nbsp;
-<!--          <router-link :to="{ name: 'AddMovies' }" class="btn btn-primary btn-block">添加</router-link>-->
           <button class="btn btn-primary btn-block" @click="goToAddMovie">添加</button>
         </div>
         <transition name="slide-down">
@@ -18,7 +17,6 @@
         </transition>
       </div>
     </div>
-
     <div class="movie-list">
       <div v-for="movie in filteredMovies" :key="movie.id" class="movie-item" @click="goToMovie(movie.id)">
         <img :src="movie.image" :alt="movie.title" class="movie-image">
