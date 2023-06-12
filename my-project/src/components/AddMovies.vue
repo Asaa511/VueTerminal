@@ -3,57 +3,75 @@
     <!-- 操作菜单 -->
     <div class="menu">
       <!-- 图片导入按钮 -->
-      <input type="file" class="form-control-file" @change="handleImageUpload" accept="image/*">
+      <input type="file" class="file-input" @change="handleImageUpload" accept="image/*">
       <!-- 缩略图显示 -->
       <div v-if="thumbnail">
         <img :src="thumbnail" class="thumbnail" alt="Thumbnail">
       </div>
     </div>
-
     <!-- 电影名称输入框 -->
-    <input type="text" class="form-control" v-model="movieName" placeholder="电影名称">
-
-    <!-- 电影简介输入框 -->
-<!--    <textarea class="form-control" v-model="movieDescription" placeholder="电影简介"></textarea>-->
-
+    <input type="text" class="movie-input" v-model="movieName" placeholder="电影名称">
     <!-- 提交按钮 -->
-    <button class="btn btn-primary" @click="submitMovie">提交</button>
+    <button class="submit-btn" @click="submitMovie">提交</button>
+    <!-- 提示消息 -->
+    <div v-if="!isFormValid" class="error-msg">{{ errorMessage }}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'AddMovies',
   data() {
     return {
+      thumbnail: '',
       movieName: '',
-      movieDescription: '',
-      thumbnail: null,
+      isFormValid: true,
+      errorMessage: ''
     };
   },
   methods: {
     handleImageUpload(event) {
-      // 处理图片上传逻辑，更新缩略图
+      // 从文件输入中获取图片文件
       const file = event.target.files[0];
-      this.thumbnail = URL.createObjectURL(file);
+      if (file) {
+        // 生成缩略图
+        const reader = new FileReader();
+        reader.onload = () => {
+          this.thumbnail = reader.result;
+        };
+        reader.readAsDataURL(file);
+      } else {
+        this.thumbnail = '';
+      }
     },
     submitMovie() {
-      // 创建新电影对象
-      const newMovie = {
-        id: Date.now(), // 使用当前时间戳作为唯一 ID
-        title: this.movieName,
-        image: this.thumbnail,
-      };
+      // 检查表单是否有效
+      this.isFormValid = true;
+      this.errorMessage = '';
+      if (!this.thumbnail) {
+        this.isFormValid = false;
+        this.errorMessage = '请导入图片文件';
+      } else if (this.movieName.trim() === '') {
+        this.isFormValid = false;
+        this.errorMessage = '请输入电影名称';
+      }
 
-      // 触发事件并传递新电影对象给父组件
-      this.$emit('movieSubmitted', newMovie);
+      if (this.isFormValid) {
+        // 创建新电影对象
+        const newMovie = {
+          id: Date.now(), // 使用当前时间戳作为唯一 ID
+          title: this.movieName,
+          image: this.thumbnail,
+        };
 
-      // 清空表单数据
-      this.movieName = '';
-      // this.movieDescription = '';
-      this.thumbnail = null;
-    },
-  },
+        // 触发事件并传递新电影对象给父组件
+        this.$emit('movieSubmitted', newMovie);
+
+        // 清空表单数据
+        this.movieName = '';
+        this.thumbnail = '';
+      }
+    }
+  }
 };
 </script>
 
@@ -61,13 +79,41 @@ export default {
 .menu {
   margin-bottom: 20px;
 }
+
+.file-input {
+  padding: 8px;
+  border: none;
+  background-color: #f2f2f2;
+  color: #333;
+  cursor: pointer;
+}
+
 .thumbnail {
   width: 200px;
   height: auto;
   margin-top: 10px;
 }
-.add-movies {
-  /* 添加样式以实现过渡效果 */
-  transition: all 0.3s;
+
+.movie-input {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
 }
 </style>
