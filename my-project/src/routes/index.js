@@ -37,7 +37,7 @@ export default [
         component: MyMsg
     },
     {
-        path: '/mymovie',
+        path: '/movie',
         component: MyMovie
     }
 
