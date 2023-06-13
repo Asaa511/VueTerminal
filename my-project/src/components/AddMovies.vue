@@ -3,14 +3,14 @@
     <!-- 操作菜单 -->
     <div class="menu">
       <!-- 图片导入按钮 -->
-      <input type="file" class="file-input" @change="handleImageUpload" accept="image/*">
+      <input accept="image/*" class="file-input" type="file" @change="handleImageUpload">
       <!-- 缩略图显示 -->
       <div v-if="thumbnail">
-        <img :src="thumbnail" class="thumbnail" alt="Thumbnail">
+        <img :src="thumbnail" alt="Thumbnail" class="thumbnail">
       </div>
     </div>
     <!-- 电影名称输入框 -->
-    <input type="text" class="movie-input" v-model="movieName" placeholder="电影名称">
+    <input v-model="movieName" class="movie-input" placeholder="电影名称" type="text">
     <!-- 提交按钮 -->
     <button class="submit-btn" @click="submitMovie">提交</button>
     <!-- 提示消息 -->

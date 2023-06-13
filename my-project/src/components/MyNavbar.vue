@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><img src="logo.png" alt="Logo" /></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+    <a class="navbar-brand" href="#"><img alt="Logo" src="logo.png"/></a>
+    <button class="navbar-toggler" data-target="#navbarNav" data-toggle="collapse" type="button">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div id="navbarNav" class="collapse navbar-collapse">

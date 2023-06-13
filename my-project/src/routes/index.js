@@ -6,8 +6,6 @@ import MyMsg from "@/components/MyMsg.vue";
 import MyMovie from "@/components/MyMovie.vue";
 
 
-
-
 export default [
     {
         path: '/index',

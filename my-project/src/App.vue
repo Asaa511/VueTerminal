@@ -2,7 +2,7 @@
   <div id="app">
     <MyNavbar></MyNavbar>
     <router-view></router-view>
-    
+
   </div>
 </template>
 
@@ -33,7 +33,7 @@ export default {
     MyUser,
     // eslint-disable-next-line vue/no-unused-components
     MyMovie,
-     // eslint-disable-next-line vue/no-unused-components
+    // eslint-disable-next-line vue/no-unused-components
   }
 };
 </script>
@@ -41,5 +41,3 @@ export default {
 <style>
 
 </style>
-
-<!--jjkj-->
