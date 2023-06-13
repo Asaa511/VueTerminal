@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><img alt="Logo" src="logo.png"/></a>
+    <a class="navbar-brand" href=""><img class="img" alt="Logo" src="../image/logo.png"/></a>
     <button class="navbar-toggler" data-target="#navbarNav" data-toggle="collapse" type="button">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -31,5 +31,8 @@ export default {
 </script>
 
 <style scoped>
-
+.img{
+  width: 40px;
+  height: 40px;
+}
 </style>

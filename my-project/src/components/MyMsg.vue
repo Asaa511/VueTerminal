@@ -63,16 +63,32 @@ export default {
     };
   },
   created() {
+    // 创建Socket.IO实例并连接到服务器
     const socket = io('http://localhost:3000');
 
-    socket.on('newMovie', (newMovie) => {
-      this.movies.push(newMovie);
+    // 监听连接事件
+    socket.on('connect', () => {
+      console.log('Socket.IO connected');
+
+      // 监听newMovie事件，接收新电影数据
+      socket.on('newMovie', (newMovie) => {
+        // 将新电影添加到movies数组
+        this.movies.push(newMovie);
+        console.log('Received new movie:', newMovie);
+      });
+
+      // 获取电影列表
+      this.fetchMovies();
     });
 
-    this.fetchMovies();
+    // 监听断开连接事件
+    socket.on('disconnect', () => {
+      console.log('Socket.IO disconnected');
+    });
   },
   methods: {
     fetchMovies() {
+      // 获取电影列表
       axios
           .get('http://localhost:3000')
           .then((response) => {
@@ -88,10 +104,20 @@ export default {
         return;
       }
 
+      if (!this.newMovie.msg) {
+        alert('请输入你对这部电影的见解');
+        return;
+      }
+
+      // 发送电影数据到服务器
       axios
           .post('http://localhost:3000/addMovies', this.newMovie)
           .then((response) => {
             console.log(response.data);
+
+            // 重置文本框内容
+            this.newMovie.title = '';
+            this.newMovie.msg = '';
           })
           .catch((error) => {
             console.error(error);
