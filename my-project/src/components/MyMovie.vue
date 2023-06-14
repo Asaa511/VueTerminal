@@ -1,11 +1,12 @@
 <template>
    <div class="containers">
         <div id="content-top">
-                <h3>电影推荐</h3>
+                <h3>电影推荐</h3><router-link class="nav-link" to="/bxjg">
                 <div class="nr">
                     <!-- <div class="img-nr"> -->
                         <img src="../image/bxjg.jpg" class="image">
                     <!-- </div> -->
+                    
                     <div class="nr-text">
                         <h4>变形金刚:超能勇士崛起</h4>
                         <p>剧情简介:故事重返上世纪90年代,
@@ -15,7 +16,9 @@
                     一场前所未有的决战即将上演</p>
                         <button type="button"><a href="index2.html">GO!</a></button>
                     </div>
-                </div>
+                
+                </div></router-link>
+                <router-link class="nav-link" to="/xj">
                 <div class="nr">
                     <!-- <div class="img-nr"> -->
                         <img src="../image/interstellar.jpg" class="image">
@@ -27,7 +30,8 @@
                             他们穿越遥远的星系银河,感受了光阴的沧海桑田,窥见了未知星球和黑洞的壮伟与神秘。在浩瀚宇宙的绝望而孤独角落,总有一份超越了时空的笃定情怀将他们紧紧相连…… </p>
                         <button type="button"><a href="index2.html">GO!</a></button>
                     </div>
-                </div>
+                </div></router-link>
+                <router-link class="nav-link" to="/xmhyj">
                 <div class="nr">
                     <!-- <div class="img-nr"> -->
                         <img src="../image/xmhyj.jpg" class="image">
@@ -40,7 +44,8 @@
 </p>
                         <button type="button"><a href="index2.html">GO!</a></button>
                     </div>
-                </div>
+                </div></router-link>
+                <router-link class="nav-link" to="/cmdsj">
                 <div class="nr">
                     <!-- <div class="img-nr"> -->
                         <img src="../image//cmdsj.jpg" class="image">
@@ -51,7 +56,8 @@
 </p>
                         <button type="button"><a href="index2.html">GO!</a></button>
                     </div>
-                </div>
+                </div></router-link>
+                <router-link class="nav-link" to="/jszs">
                 <div class="nr">
                     <!-- <div class="img-nr"> -->
                         <img src="../image/jszs.jpg" class="image">
@@ -63,6 +69,8 @@
                         <button type="button"><a href="index2.html">GO!</a></button>
                     </div>
                 </div>
+            </router-link>
+            <router-link class="nav-link" to="/sdyjq">
                 <div class="nr">
                     <!-- <div class="img-nr"> -->
                         <img src="../image/sdyjq10.jpg" class="image">
@@ -72,7 +80,8 @@
                         <p>剧情简介:在完成了无数任务,克服了各种不可能的困难之后,唐老大和他的家族以智慧、勇气和速度过五关斩六将,打败了一路上的所有敌人。如今,他们面对的是一名危险至极的对手:这个从过往阴影中浮出水面的具有致命威胁的人物,誓要报偿血海深仇,决心破坏这个家族,彻底摧毁唐老大所热爱的一切及其至亲至爱之人</p>
                         <button type="button"><a href="index2.html">GO!</a></button>
                     </div>
-                </div>
+                </div></router-link>
+                <router-link class="nav-link" to="/ssbtl">
                 <div class="nr">
                     <!-- <div class="img-nr"> -->
                         <img src="../image/ssbtl.jpg" class="image">
@@ -83,7 +92,8 @@
 </p>
                         <button type="button"><a href="index2.html">GO!</a></button>
                     </div>
-                </div>
+                </div></router-link>
+                <router-link class="nav-link" to="/agzz">
                 <div class="nr">
                     <!-- <div class="img-nr"> -->
                         <img src="../image/agzz.jpg" class="image">
@@ -94,7 +104,7 @@
 	</p>
                         <button type="button"><a href="index2.html">GO!</a></button>
                     </div>
-                </div>
+                </div></router-link>
         </div>   
    </div>
 </template>
