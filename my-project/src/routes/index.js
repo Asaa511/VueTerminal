@@ -56,7 +56,7 @@ export default [
     {
         path: '/SignUpUser',
         component: SignUpUser
-    }
+    },
 
     {
         path: '/bxjg',
