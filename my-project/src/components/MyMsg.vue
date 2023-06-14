@@ -64,7 +64,7 @@ export default {
   },
   created() {
     // 创建Socket.IO实例并连接到服务器
-    const socket = io('http://localhost:3000');
+    const socket = io('http://localhost:4000');
 
     // 监听连接事件
     socket.on('connect', () => {
@@ -90,7 +90,7 @@ export default {
     fetchMovies() {
       // 获取电影列表
       axios
-          .get('http://localhost:3000')
+          .get('http://localhost:4000')
           .then((response) => {
             this.movies = response.data;
           })
@@ -111,7 +111,7 @@ export default {
 
       // 发送电影数据到服务器
       axios
-          .post('http://localhost:3000/addMovies', this.newMovie)
+          .post('http://localhost:4000/addMovies', this.newMovie)
           .then((response) => {
             console.log(response.data);
 

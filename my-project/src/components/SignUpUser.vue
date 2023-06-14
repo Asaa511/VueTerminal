@@ -2,21 +2,23 @@
   <div>
     <div>
       <form @submit.prevent="loginUser">
+        <p>你可以在这进行用户切换操作</p>
         <input type="text" v-model="newUser.username" placeholder="Username">
         <input type="password" v-model="newUser.password" placeholder="Password">
         <button type="submit">Login</button>
-        <p v-if="error" class="error-message">{{ error }}</p>
+        <p v-if="error" className="error-message">{{ error }}</p>
       </form>
     </div>
     <div v-if="currentUser">
-      <h2>{{ currentUser.username }}'s Information</h2>
+      <h2>id：{{ currentUser.id }}</h2>
+      <h4>获取到用户，信息如下：</h4>
       <p>Username: {{ currentUser.username }}</p>
       <p>Password: {{ currentUser.password }}</p>
+      <p>Created: {{ currentUser.time }}</p>
       <!-- Add more information fields as needed -->
     </div>
   </div>
 </template>
-
 
 <script>
 import axios from "axios";
@@ -26,7 +28,6 @@ import {mapActions, mapGetters} from 'vuex';
 export default {
   data() {
     return {
-      users: [],
       newUser: {
         username: '',
         password: '',
@@ -42,7 +43,6 @@ export default {
     socket.on('connect', () => {
       console.log('io.true');
       socket.on('newUser', (newUser) => {
-        this.users.push(newUser);
         console.log('new user', newUser);
       });
       this.fetchUsers();
@@ -61,7 +61,7 @@ export default {
       axios
           .get('http://localhost:3000')
           .then((response) => {
-            this.users = response.data;
+            console.log(response.data);
           })
           .catch((error) => {
             console.error(error);
@@ -75,10 +75,9 @@ export default {
         const response = await axios.post('http://localhost:3000/signUser', this.newUser);
         console.log(response.data);
         if (response.data === 'ok') {
-          // 登录成功，获取用户信息
           const userResponse = await axios.get('http://localhost:3000/user');
           if (userResponse.status === 200) {
-            await this.setCurrentUser(userResponse.data); // 使用 mapActions 分发 setCurrentUser action
+            await this.setCurrentUser(userResponse.data);
             this.error = ''; // 清除错误消息
           } else {
             this.error = '获取用户信息失败';
@@ -96,7 +95,5 @@ export default {
 </script>
 
 <style scoped>
-.error-message {
-  color: red;
-}
+
 </style>
