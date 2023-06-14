@@ -115,53 +115,62 @@ export default {
 }
 </script>
 <style>
-.containers{
-            height: 100px;
-            width: 80%;
-            margin:auto;
-        }
-.image{
-            width: 180px;
-            height: 300px;
-            float: left;
-        }
-.hh{
-    float: left;
+.containers {
+  height: 100px;
+  width: 80%;
+  margin: auto;
 }
-.hhh{
-    float: right;
+
+.image {
+  width: 180px;
+  height: 300px;
+  float: left;
 }
-.content{
-    width: 1200px;
-    margin: auto;
+
+.hh {
+  float: left;
 }
-.content-top{
-    margin-top: 50px;
+
+.hhh {
+  float: right;
 }
-.content-top h3{
-    font-size: 24px;
+
+.content {
+  width: 1200px;
+  margin: auto;
 }
-.nr{
-    margin-top: 30px;
-    overflow: hidden;
-    height: auto;
-    margin-left: 40px;
-    margin-bottom: 50px;
+
+.content-top {
+  margin-top: 50px;
 }
-.img-nr{
-    position: relative;
-    width: 500px;
-    height: 300px;
-    overflow: hidden;
-    border: 2px solid #FFFFFF;
-    padding: 0 10px;
-    float: left;
-    cursor: pointer;
+
+.content-top h3 {
+  font-size: 24px;
 }
-.nr-text p{
-    padding-top: 20px;
-    text-indent: 2em;
-    font-size: 16px;
-    line-height: 34px;
+
+.nr {
+  margin-top: 30px;
+  overflow: hidden;
+  height: auto;
+  margin-left: 40px;
+  margin-bottom: 50px;
+}
+
+.img-nr {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  overflow: hidden;
+  border: 2px solid #FFFFFF;
+  padding: 0 10px;
+  float: left;
+  cursor: pointer;
+}
+
+.nr-text p {
+  padding-top: 20px;
+  text-indent: 2em;
+  font-size: 16px;
+  line-height: 34px;
 }
 </style>

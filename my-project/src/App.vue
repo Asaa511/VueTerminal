@@ -2,7 +2,6 @@
   <div id="app">
     <MyNavbar></MyNavbar>
     <router-view></router-view>
-    
   </div>
 </template>
 
@@ -26,7 +25,7 @@ import AgZz from "@/components/movie/AgZz.vue";
 
 Vue.use(VueRouter);
 const router = new VueRouter({
-  routes
+  routes,
 });
 
 export default {
@@ -40,6 +39,10 @@ export default {
     MyUser,
     // eslint-disable-next-line vue/no-unused-components
     MyMovie,
+    // eslint-disable-next-line vue/no-unused-components
+    LogInUser,
+    // eslint-disable-next-line vue/no-unused-components
+    SignUpUser,
      // eslint-disable-next-line vue/no-unused-components
     BxJg,
       // eslint-disable-next-line vue/no-unused-components

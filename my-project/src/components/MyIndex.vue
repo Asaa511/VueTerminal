@@ -3,7 +3,7 @@
     <div class="search-bar text-center">
       <div class="row">
         <div class="col-md-8 offset-md-2">
-          <input type="text" class="form-control" v-model="searchQuery" placeholder="搜索电影" maxlength="50">
+          <input v-model="searchQuery" class="form-control" maxlength="50" placeholder="搜索电影" type="text">
         </div>
         <div class="col-md-2">
           <button class="btn btn-primary btn-block" @click="searchMovies">搜索</button>
@@ -18,12 +18,13 @@
       </div>
     </div>
     <router-link class="nav-link" to="/movie">
-    <div class="movie-list">
-      <div v-for="movie in filteredMovies" :key="movie.id" class="movie-item" @click="goToMovie(movie.id)">
-        <img :src="movie.image" :alt="movie.title" class="movie-image">
-        <p>{{ movie.title }}</p>
+      <div class="movie-list">
+        <div v-for="movie in filteredMovies" :key="movie.id" class="movie-item" @click="goToMovie(movie.id)">
+          <img :alt="movie.title" :src="movie.image" class="movie-image">
+          <p>{{ movie.title }}</p>
+        </div>
       </div>
-    </div></router-link>
+    </router-link>
     <div>
       <router-view></router-view>
     </div>
@@ -39,14 +40,14 @@ export default {
       isAddMoviesVisible: false,
       searchQuery: '',
       movies: [
-        { id: 1, title: '星际穿越', image: require('../image/interstellar.jpg')},
-        { id: 2, title: '变形金刚', image: require('../image/bxjg.jpg')},
-        { id: 3, title: '寻梦环游记', image: require('../image/xmhyj.jpg')},
-        { id: 4, title: '楚门的世界', image: require('../image/cmdsj.jpg')},
-        { id: 5, title: '疾速追杀', image: require('../image/jszs.jpg') },
-        { id: 6, title: '速度与激情10', image: require('../image/sdyjq10.jpg')},
-        { id: 7, title: '杀手不太冷', image: require('../image/ssbtl.jpg')},
-        { id: 8, title: '阿甘正传', image: require('../image/agzz.jpg')},
+        {id: 1, title: '星际穿越', image: require('../image/interstellar.jpg')},
+        {id: 2, title: '变形金刚', image: require('../image/bxjg.jpg')},
+        {id: 3, title: '寻梦环游记', image: require('../image/xmhyj.jpg')},
+        {id: 4, title: '楚门的世界', image: require('../image/cmdsj.jpg')},
+        {id: 5, title: '疾速追杀', image: require('../image/jszs.jpg')},
+        {id: 6, title: '速度与激情10', image: require('../image/sdyjq10.jpg')},
+        {id: 7, title: '杀手不太冷', image: require('../image/ssbtl.jpg')},
+        {id: 8, title: '阿甘正传', image: require('../image/agzz.jpg')},
       ],
     };
   },
@@ -55,7 +56,6 @@ export default {
       if (this.searchQuery.trim() !== '') {
         const query = this.searchQuery.toLowerCase();
         return this.movies.filter(movie => movie.title.toLowerCase().includes(query));
-       //this.$router.push({name: 'Child', params: { id: itemId }})
       }
       return this.movies;
     },
@@ -83,10 +83,6 @@ export default {
   },
 };
 </script>
-
-
-
-
 
 
 <style scoped>
@@ -128,7 +124,6 @@ export default {
     opacity: 1;
   }
 }
-
 
 
 </style>

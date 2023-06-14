@@ -5,20 +5,21 @@
         <div class="col-md-12 column">
           <form class="form-horizontal" role="form">
             <div class="form-group">
-              <label for="titleInput" class="col-sm-2 control-label">影名：</label>
+              <label class="col-sm-2 control-label" for="titleInput">影名：</label>
               <div class="col-sm-10">
-                <input class="form-control" id="titleInput" v-model="newMovie.title" placeholder="电影名称">
+                <input id="titleInput" v-model="newMovie.title" class="form-control" placeholder="电影名称">
               </div>
             </div>
             <div class="form-group">
-              <label for="msgInput" class="col-sm-2 control-label">见解：</label>
+              <label class="col-sm-2 control-label" for="msgInput">见解：</label>
               <div class="col-sm-10">
-                <textarea class="form-control" id="msgInput" v-model="newMovie.msg" placeholder="分享的你对这部电影的见解"></textarea>
+                <textarea id="msgInput" v-model="newMovie.msg" class="form-control"
+                          placeholder="分享的你对这部电影的见解"></textarea>
               </div>
             </div>
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-primary" @click="sendData">发送</button>
+                <button class="btn btn-primary" type="submit" @click="sendData">发送</button>
               </div>
             </div>
           </form>
@@ -62,18 +63,34 @@ export default {
     };
   },
   created() {
-    const socket = io('http://localhost:3000');
+    // 创建Socket.IO实例并连接到服务器
+    const socket = io('http://localhost:4000');
 
-    socket.on('newMovie', (newMovie) => {
-      this.movies.push(newMovie);
+    // 监听连接事件
+    socket.on('connect', () => {
+      console.log('Socket.IO connected');
+
+      // 监听newMovie事件，接收新电影数据
+      socket.on('newMovie', (newMovie) => {
+        // 将新电影添加到movies数组
+        this.movies.push(newMovie);
+        console.log('Received new movie:', newMovie);
+      });
+
+      // 获取电影列表
+      this.fetchMovies();
     });
 
-    this.fetchMovies();
+    // 监听断开连接事件
+    socket.on('disconnect', () => {
+      console.log('Socket.IO disconnected');
+    });
   },
   methods: {
     fetchMovies() {
+      // 获取电影列表
       axios
-          .get('http://localhost:3000')
+          .get('http://localhost:4000')
           .then((response) => {
             this.movies = response.data;
           })
@@ -87,10 +104,20 @@ export default {
         return;
       }
 
+      if (!this.newMovie.msg) {
+        alert('请输入你对这部电影的见解');
+        return;
+      }
+
+      // 发送电影数据到服务器
       axios
-          .post('http://localhost:3000/addMovies', this.newMovie)
+          .post('http://localhost:4000/addMovies', this.newMovie)
           .then((response) => {
             console.log(response.data);
+
+            // 重置文本框内容
+            this.newMovie.title = '';
+            this.newMovie.msg = '';
           })
           .catch((error) => {
             console.error(error);
