@@ -17,7 +17,7 @@
           <router-link class="nav-link" to="/reviews">分享</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/LogInUser">1</router-link>
+          <router-link class="nav-link" to="/LogInUser"></router-link>
         </li>
         <li class="nav-item">
           <router-link class="nav-link" to="/SignUpUser"></router-link>
