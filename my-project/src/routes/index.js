@@ -4,6 +4,9 @@ import MyUser from "@/components/MyUser.vue";
 import AddMovies from "@/components/AddMovies.vue";
 import MyMsg from "@/components/MyMsg.vue";
 import MyMovie from "@/components/MyMovie.vue";
+import LogInUser from "@/components/LogInUser.vue";
+import SignUpUser from "@/components/SignUpUser.vue";
+
 
 
 export default [
@@ -37,6 +40,14 @@ export default [
     {
         path: '/movie',
         component: MyMovie
+    },
+    {
+        path: '/LoginUser',
+        component: LogInUser
+    },
+    {
+        path: '/SignUpUser',
+        component: SignUpUser
     }
 
 ]

@@ -16,7 +16,6 @@ const corsOptions = {
 
 // 使用CORS中间件
 app.use(cors(corsOptions));
-
 // 使用body-parser中间件解析请求主体
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

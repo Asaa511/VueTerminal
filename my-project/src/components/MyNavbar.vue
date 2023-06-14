@@ -15,6 +15,12 @@
         <li class="nav-item">
           <router-link class="nav-link" to="/reviews">分享</router-link>
         </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/LogInUser">注册</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/SignUpUser">登录</router-link>
+        </li>
       </ul>
     </div>
     <div>
