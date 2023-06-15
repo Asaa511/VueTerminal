@@ -2,8 +2,8 @@
   <div>
     <div>
       <form @submit="registerUser">
-        <input type="text" v-model="newUser.username" placeholder="Username">
-        <input type="password" v-model="newUser.password" placeholder="Password">
+        <input v-model="newUser.username" placeholder="Username" type="text">
+        <input v-model="newUser.password" placeholder="Password" type="password">
         <button type="submit">Register</button>
       </form>
     </div>
@@ -29,11 +29,10 @@
 </template>
 
 
-
 <script>
 import axios from "axios";
 import io from 'socket.io-client';
-import { mapGetters } from 'vuex';
+import {mapGetters} from 'vuex';
 
 export default {
   computed: {
@@ -84,7 +83,7 @@ export default {
       try {
         const response = await axios.post('http://localhost:3000/logUser', this.newUser);
         console.log(response.data);
-        this.newUser = { username: '', password: '' }; // 重置表单
+        this.newUser = {username: '', password: ''}; // 重置表单
         this.fetchUsers(); // 获取最新的用户列表
       } catch (error) {
         console.error(error);
@@ -93,7 +92,6 @@ export default {
   }
 }
 </script>
-
 
 
 <style scoped>

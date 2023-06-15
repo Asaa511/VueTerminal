@@ -11,7 +11,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 const connection = mysql.createConnection({
@@ -46,7 +46,7 @@ app.post('/logUser', (req, res) => {
 });
 
 app.post('/signUser', (req, res) => {
-    const { username, password } = req.body;
+    const {username, password} = req.body;
 
     // 在这里编写验证逻辑
     connection.query(

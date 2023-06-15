@@ -8,7 +8,7 @@ import LogInUser from "@/components/LogInUser.vue";
 import SignUpUser from "@/components/SignUpUser.vue";
 
 
-import BxJg  from "@/components/movie/BxJg.vue";
+import BxJg from "@/components/movie/BxJg.vue";
 import CmDsj from "@/components/movie/CmDsj.vue";
 import JsZs from "@/components/movie/JsZs.vue";
 import SdyJq from "@/components/movie/SdyJq.vue";

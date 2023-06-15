@@ -3,8 +3,8 @@
     <div>
       <form @submit.prevent="loginUser">
         <p>你可以在这进行用户切换操作</p>
-        <input type="text" v-model="newUser.username" placeholder="Username">
-        <input type="password" v-model="newUser.password" placeholder="Password">
+        <input v-model="newUser.username" placeholder="Username" type="text">
+        <input v-model="newUser.password" placeholder="Password" type="password">
         <button type="submit">Login</button>
         <p v-if="error" className="error-message">{{ error }}</p>
       </form>

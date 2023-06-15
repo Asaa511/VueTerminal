@@ -10,19 +10,19 @@ const socket = require('socket.io');
 const app = express();
 
 const corsOptions = {
-  origin: '*', // 允许来自任何源的跨域请求
+    origin: '*', // 允许来自任何源的跨域请求
 };
 
 
 app.use(cors(corsOptions));
 // cors 用于处理跨域请求 允许来自任何源的请求访问该服务器
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 
 const movies = [
-  { id: 1, title: '星际穿越', msg: '顶级配乐', times: '' },
-  { id: 2, title: '寻梦环游记', msg: '爱超越死亡', times: '' },
+    {id: 1, title: '星际穿越', msg: '顶级配乐', times: ''},
+    {id: 2, title: '寻梦环游记', msg: '爱超越死亡', times: ''},
 ];
 
 // 添加中间件，用于解析请求体中的 JSON 数据
@@ -30,13 +30,13 @@ app.use(express.json());
 
 // 获取电影数据的路由处理函数
 app.get('/', (req, res) => {
-  const id = req.query.id;
-  if (id) {
-    const movie = movies.find((movie) => movie.id === parseInt(id));
-    res.send(movie);
-  } else {
-    res.send(movies);
-  }
+    const id = req.query.id;
+    if (id) {
+        const movie = movies.find((movie) => movie.id === parseInt(id));
+        res.send(movie);
+    } else {
+        res.send(movies);
+    }
 });
 
 let movieId = 3; // 初始电影ID为3
@@ -55,16 +55,16 @@ app.post('/addMovies', (req, res) => {
 
 // 启动服务器
 const server = app.listen(3000, () => {
-  console.log('Server is running on http://127.0.0.2:3000');
+    console.log('Server is running on http://127.0.0.2:3000');
 });
 
 // 创建Socket.io实例，并将其附加到服务器上
 const io = socket(server, {
-  cors: {
-    origin: 'http://localhost:8080',
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type'],
-    credentials: true,
-  },
+    cors: {
+        origin: 'http://localhost:8080',
+        methods: ['GET', 'POST'],
+        allowedHeaders: ['Content-Type'],
+        credentials: true,
+    },
 });
 

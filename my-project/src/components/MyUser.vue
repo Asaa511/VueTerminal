@@ -4,8 +4,8 @@
       <div class="header">Login</div>
       <form @submit.prevent="loginUser">
         <div class="form-wrapper">
-          <input class="input-item" type="text" v-model="newUser.username" placeholder="Username">
-          <input class="input-item" type="password" v-model="newUser.password" placeholder="Password">
+          <input v-model="newUser.username" class="input-item" placeholder="Username" type="text">
+          <input v-model="newUser.password" class="input-item" placeholder="Password" type="password">
           <div class="bto">
             <div class="button-wrapper">
               <router-link class="nav-link" to="/LogInUser">Register</router-link>
@@ -24,7 +24,7 @@
 <script>
 import axios from "axios";
 import io from 'socket.io-client';
-import { mapActions, mapGetters } from 'vuex';
+import {mapActions, mapGetters} from 'vuex';
 
 export default {
   name: "MyUser",
@@ -79,12 +79,10 @@ export default {
         const response = await axios.post('http://localhost:3000/signUser', this.newUser);
         console.log(response.data);
         if (response.data === 'ok') {
-          // 登录成功，获取用户信息
           const userResponse = await axios.get('http://localhost:3000/user');
           if (userResponse.status === 200) {
             await this.setCurrentUser(userResponse.data);
-            this.error = ''; // 清除错误消息
-            // 登录成功后跳转至首页
+            this.error = '';
             await this.$router.push('/index');
           } else {
             this.error = '获取用户信息失败';
